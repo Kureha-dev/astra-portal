@@ -1,0 +1,54 @@
+@import "tailwindcss";
+
+:root {
+  --color-astra-dark: #0b0e14;
+  --color-astra-purple: #8b5cf6;
+  --color-astra-blue: #3b82f6;
+  --color-astra-pink: #ec4899;
+  --color-astra-gray: #374151;
+  --color-astra-light: #f3f4f6;
+}
+
+/* Custom font import (optional, using Inter for modern look) */
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap');
+
+html {
+  font-family: 'Inter', sans-serif;
+}
+
+/* Custom scrollbar for Discord-like feel */
+::-webkit-scrollbar {
+  width: 8px;
+}
+
+::-webkit-scrollbar-track {
+  background: var(--color-astra-dark);
+}
+
+::-webkit-scrollbar-thumb {
+  background: var(--color-astra-purple);
+  border-radius: 4px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: var(--color-astra-blue);
+}
+
+/* Custom button styles */
+.btn-primary {
+  @apply bg-gradient-to-r from-blue-500 to-purple-600 hover:from-blue-600 hover:to-purple-700 text-white font-semibold py-3 px-8 rounded-lg transition duration-300 transform hover:scale-105;
+}
+
+.btn-secondary {
+  @apply border-2 border-purple-500 text-purple-400 hover:bg-purple-500 hover:text-white font-semibold py-3 px-8 rounded-lg transition duration-300;
+}
+
+/* Card styles */
+.card {
+  @apply bg-slate-800/50 p-6 rounded-lg backdrop-blur-sm border border-slate-700/50;
+}
+
+/* Gradient text utility */
+.gradient-text {
+  @apply bg-gradient-to-r from-blue-400 via-purple-500 to-pink-500 bg-clip-text text-transparent;
+}
