@@ -1,67 +1,39 @@
 @import "tailwindcss";
 
-:root {
-  /* ASTRA ブランドカラーの再定義 */
-  --color-astra-bg: #0b0e14;
+@theme {
+  /* ここで Tailwind にカスタムカラーを登録します */
+  --color-astra-dark: #0b0e14;
   --color-astra-primary: #8b5cf6;
   --color-astra-secondary: #3b82f6;
-  --color-astra-accent: #f6adc6; /* Botメッセージに合わせたピンク */
-  --color-astra-text: #f3f4f6;
+  --color-astra-pink: #f6adc6;
   --color-astra-card: rgba(30, 41, 59, 0.5);
 }
 
-/* フォントの最適化 */
-@import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;800&family=JetBrains+Mono&display=swap');
-
-html {
-  font-family: 'Inter', sans-serif;
-  scroll-behavior: smooth;
-  background-color: var(--color-astra-bg);
-  color: var(--color-astra-text);
+/* その他のカスタムスタイル */
+@layer base {
+  html {
+    @apply bg-astra-dark text-gray-100;
+    font-family: 'Inter', sans-serif;
+  }
 }
 
-/* スクロールバー: より細く、スタイリッシュに */
+/* スクロールバーなどはそのままでOK */
 ::-webkit-scrollbar {
   width: 6px;
 }
-
-::-webkit-scrollbar-track {
-  background: transparent;
-}
-
 ::-webkit-scrollbar-thumb {
-  background: linear-gradient(to bottom, var(--color-astra-primary), var(--color-astra-secondary));
+  background: var(--color-astra-primary);
   border-radius: 10px;
 }
 
-/* --- Utility Classes --- */
-
-/* 1. 究極のグラデーションテキスト */
-.gradient-text {
-  @apply bg-gradient-to-r from-blue-400 via-purple-400 to-pink-400 bg-clip-text text-transparent font-black tracking-tight;
-}
-
-/* 2. ボタン: ネオンエフェクトを追加 */
-.btn-primary {
-  @apply relative overflow-hidden bg-white text-black font-bold py-4 px-10 rounded-full 
-         transition-all duration-300 shadow-[0_0_20px_rgba(139,92,246,0.3)]
-         hover:shadow-[0_0_30px_rgba(139,92,246,0.5)] hover:scale-105 active:scale-95;
-}
-
-.btn-secondary {
-  @apply border border-white/20 text-white font-bold py-4 px-10 rounded-full 
-         transition-all duration-300 backdrop-blur-md
-         hover:bg-white/10 hover:border-white/40;
-}
-
-/* 3. カード: ホバー時に光るエフェクト */
+/* エラーが出ていた card クラスの修正例 */
 .card {
   @apply bg-white/5 p-8 rounded-2xl border border-white/5 backdrop-blur-md
-         transition-all duration-500 hover:border-astra-primary/50 
-         hover:bg-white/[0.08] hover:-translate-y-1;
+         transition-all duration-500;
 }
 
-/* 4. コードフォント（コマンド表示用） */
-.font-mono {
-  font-family: 'JetBrains Mono', monospace;
+/* hover時の指定を CSS変数直接参照にするか、@themeで登録した名前を使う */
+.card:hover {
+  border-color: color-mix(in srgb, var(--color-astra-primary) 50%, transparent);
+  transform: translateY(-4px);
 }
