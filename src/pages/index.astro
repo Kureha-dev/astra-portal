@@ -1,39 +1,73 @@
 ---
 import Layout from '../layouts/Layout.astro';
+
+// 定数にしておくと管理が楽になります
+const siteTitle = "ASTRA - Next Gen Server Engine";
+const inviteLink = "#"; // ここにBotの招待リンク
+const supportServer = "#"; // 昨夜設定した通知が飛ぶサーバー
 ---
 
-<Layout>
-	<section class="min-h-screen bg-gradient-to-br from-slate-900 via-purple-900 to-slate-900 flex items-center justify-center px-4">
-		<div class="max-w-4xl mx-auto text-center">
-			<h1 class="text-6xl md:text-8xl font-bold text-white mb-6 bg-gradient-to-r from-blue-400 via-purple-500 to-pink-500 bg-clip-text text-transparent">
+<Layout title={siteTitle}>
+	<section class="min-h-screen bg-[#0b0e14] flex items-center justify-center px-4 relative overflow-hidden">
+		<div class="absolute top-[-10%] left-[-10%] w-[40%] h-[40%] bg-purple-900/20 blur-[120px] rounded-full"></div>
+		<div class="absolute bottom-[-10%] right-[-10%] w-[40%] h-[40%] bg-blue-900/20 blur-[120px] rounded-full"></div>
+
+		<div class="max-w-4xl mx-auto text-center relative z-10">
+			<span class="inline-block px-3 py-1 rounded-full bg-purple-500/10 border border-purple-500/20 text-purple-400 text-sm font-medium mb-6">
+				v1.0.4 RC1 Released
+			</span>
+
+			<h1 class="text-6xl md:text-8xl font-black text-white mb-6 tracking-tighter bg-gradient-to-r from-blue-400 via-purple-400 to-pink-400 bg-clip-text text-transparent">
 				ASTRA
 			</h1>
-			<p class="text-xl md:text-2xl text-gray-300 mb-8">
-				The ultimate Discord Bot for your server
+			
+			<p class="text-xl md:text-2xl text-gray-300 mb-8 font-light">
+				次世代サーバーエンジン <span class="text-purple-400 font-semibold">Stellar-Shift</span> 搭載
 			</p>
-			<p class="text-lg text-gray-400 mb-12 max-w-2xl mx-auto">
-				ASTRA brings powerful features to enhance your Discord experience. From moderation to entertainment, manage your server like never before.
+			
+			<p class="text-lg text-gray-400 mb-12 max-w-2xl mx-auto leading-relaxed">
+				ライセンス認証システムによる高度な権限管理と、<br class="hidden md:block" />
+				洗練された操作性で、あなたのコミュニティに新たな夜明けを。
 			</p>
-			<div class="flex flex-col sm:flex-row gap-4 justify-center mb-12">
-				<a href="#" class="bg-gradient-to-r from-blue-500 to-purple-600 hover:from-blue-600 hover:to-purple-700 text-white font-semibold py-3 px-8 rounded-lg transition duration-300 transform hover:scale-105">
-					Add to Discord
+
+			<div class="flex flex-col sm:flex-row gap-4 justify-center mb-20">
+				<a href={inviteLink} class="bg-white text-black hover:bg-gray-200 font-bold py-4 px-10 rounded-full transition duration-300 shadow-[0_0_20px_rgba(255,255,255,0.3)]">
+					サーバーに導入する
 				</a>
-				<a href="#" class="border-2 border-purple-500 text-purple-400 hover:bg-purple-500 hover:text-white font-semibold py-3 px-8 rounded-lg transition duration-300">
-					Learn More
+				<a href={supportServer} class="bg-slate-900/80 border border-white/10 text-white hover:bg-slate-800 font-bold py-4 px-10 rounded-full transition duration-300 backdrop-blur-md">
+					サポートサーバー
 				</a>
 			</div>
-			<div class="grid grid-cols-1 md:grid-cols-3 gap-8 text-center">
-				<div class="bg-slate-800/50 p-6 rounded-lg backdrop-blur-sm">
-					<h3 class="text-xl font-semibold text-white mb-2">Moderation</h3>
-					<p class="text-gray-400">Keep your server safe with advanced moderation tools.</p>
+
+			<div class="grid grid-cols-1 md:grid-cols-3 gap-6 text-left">
+				<div class="bg-white/5 p-8 rounded-2xl border border-white/5 hover:border-purple-500/30 transition-colors group">
+					<div class="w-10 h-10 bg-purple-500/20 rounded-lg flex items-center justify-center mb-4 text-purple-400 group-hover:scale-110 transition-transform">
+						<svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+							<path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12l2 2 4-4m5.618-4.016A11.955 11.955 0 0112 2.944a11.955 11.955 0 01-8.618 3.04A12.02 12.02 0 003 9c0 5.591 3.824 10.29 9 11.622 5.176-1.332 9-6.03 9-11.622 0-1.042-.133-2.052-.382-3.016z" />
+						</svg>
+					</div>
+					<h3 class="text-lg font-bold text-white mb-2">Advanced Auth</h3>
+					<p class="text-sm text-gray-400 leading-relaxed">独自のライセンスキーによる認証システム。選ばれたサーバーのみに機能を解放。</p>
 				</div>
-				<div class="bg-slate-800/50 p-6 rounded-lg backdrop-blur-sm">
-					<h3 class="text-xl font-semibold text-white mb-2">Entertainment</h3>
-					<p class="text-gray-400">Fun games and commands to engage your community.</p>
+
+				<div class="bg-white/5 p-8 rounded-2xl border border-white/5 hover:border-blue-500/30 transition-colors group">
+					<div class="w-10 h-10 bg-blue-500/20 rounded-lg flex items-center justify-center mb-4 text-blue-400 group-hover:scale-110 transition-transform">
+						<svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+							<path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 10V3L4 14h7v7l9-11h-7z" />
+						</svg>
+					</div>
+					<h3 class="text-lg font-bold text-white mb-2">Fast Deployment</h3>
+					<p class="text-sm text-gray-400 leading-relaxed">認証と同時に全コマンドを即座に注入。待機時間ゼロでフル機能を利用可能。</p>
 				</div>
-				<div class="bg-slate-800/50 p-6 rounded-lg backdrop-blur-sm">
-					<h3 class="text-xl font-semibold text-white mb-2">Customization</h3>
-					<p class="text-gray-400">Tailor ASTRA to fit your server's unique needs.</p>
+
+				<div class="bg-white/5 p-8 rounded-2xl border border-white/5 hover:border-pink-500/30 transition-colors group">
+					<div class="w-10 h-10 bg-pink-500/20 rounded-lg flex items-center justify-center mb-4 text-pink-400 group-hover:scale-110 transition-transform">
+						<svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+							<path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 6V4m0 2a2 2 0 100 4m0-4a2 2 0 110 4m-6 8a2 2 0 100-4m0 4a2 2 0 110-4m0 4v2m0-6V4m6 6v10m6-2a2 2 0 100-4m0 4a2 2 0 110-4m0 4v2m0-6V4" />
+						</svg>
+					</div>
+					<h3 class="text-lg font-bold text-white mb-2">Customizable</h3>
+					<p class="text-sm text-gray-400 leading-relaxed">サーバーのニーズに合わせた柔軟な設定。あなたの「理想」をカタチに。</p>
 				</div>
 			</div>
 		</div>
